@@ -26,6 +26,11 @@ maintenance: {
 
 Then redeploy (`npm run deploy`). With `enabled: false`, the normal site is shown.
 
+When enabled, `/` is built as the maintenance screen (no contact if `showContact: false`),
+middleware rewrites every other path to `/`, and `wrangler.jsonc` sets
+`assets.run_worker_first: true` so Cloudflare does not serve a cached full-site HTML
+before the Worker runs.
+
 ## Getting started
 
 ```bash

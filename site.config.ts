@@ -7,11 +7,11 @@
 
 export const siteConfig = {
   maintenance: {
-    enabled: false,
+    enabled: true,
     title: "Qualcosa di nuovo sta arrivando",
     subtitle:
       "Stiamo preparando la nostra nuova presenza online. Torna a trovarci presto.",
     /** Mailto link using the email in src/data/content.ts */
-    showContact: true,
+    showContact: false,
   },
 } as const;

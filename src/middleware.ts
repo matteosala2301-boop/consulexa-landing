@@ -1,16 +1,16 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { siteConfig } from "../site.config";
+import { isMaintenanceMode } from "@/lib/maintenance";
 
 export function middleware(request: NextRequest) {
-  if (!siteConfig.maintenance.enabled) {
+  if (!isMaintenanceMode()) {
     return NextResponse.next();
   }
 
   const { pathname } = request.nextUrl;
 
   if (
-    pathname === "/maintenance" ||
+    pathname === "/" ||
     pathname.startsWith("/_next") ||
     pathname === "/favicon.svg" ||
     pathname === "/robots.txt"
@@ -19,7 +19,7 @@ export function middleware(request: NextRequest) {
   }
 
   const url = request.nextUrl.clone();
-  url.pathname = "/maintenance";
+  url.pathname = "/";
   return NextResponse.rewrite(url);
 }
 
