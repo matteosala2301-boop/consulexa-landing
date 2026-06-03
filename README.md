@@ -11,6 +11,21 @@ the TypeScript backend (route handlers) live in the same project.
 - Node.js 20+ (developed on 22)
 - npm
 
+## Coming-soon / maintenance mode
+
+Edit **`site.config.ts`** at the project root:
+
+```ts
+maintenance: {
+  enabled: true,   // flip to true for the full-screen “in costruzione” page
+  title: "...",
+  subtitle: "...",
+  showContact: true,
+}
+```
+
+Then redeploy (`npm run deploy`). With `enabled: false`, the normal site is shown.
+
 ## Getting started
 
 ```bash
