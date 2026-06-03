@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { cormorant, manrope } from "@/lib/fonts";
+import { site } from "@/data/content";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.consulexa.com"),
+  metadataBase: new URL(site.url),
   title: "CONSULEXA — Procurement, Sourcing & Advisory | Europe · Asia · ASEAN",
   description:
     "Independent procurement, sourcing and advisory for European companies working with China and ASEAN markets. Walter Galimberti — on the ground when it matters.",
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
     description:
       "Independent consulting for European companies working with China and ASEAN markets. On the ground when it matters.",
     type: "website",
-    url: "https://www.consulexa.com",
+    url: site.url,
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],

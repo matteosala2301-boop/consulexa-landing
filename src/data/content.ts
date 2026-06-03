@@ -5,8 +5,9 @@
 
 export const site = {
   name: "CONSULEXA",
+  url: "https://www.consulexa.it",
   person: "Walter Galimberti",
-  email: "walter@consulexa.com",
+  email: "walter@consulexa.it",
   pec: "consulexa@pec.it",
   phone: "+39 333 6823154",
   phoneHref: "+393336823154",

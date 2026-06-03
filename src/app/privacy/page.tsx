@@ -7,7 +7,7 @@ import styles from "./privacy.module.css";
 
 export const metadata: Metadata = {
   title: "Privacy & Cookies — CONSULEXA",
-  description: "Privacy and cookie policy for consulexa.com.",
+  description: "Privacy and cookie policy for consulexa.it.",
   robots: { index: false },
 };
 
