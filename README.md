@@ -26,10 +26,6 @@ maintenance: {
 
 Then redeploy (`npm run deploy`). With `enabled: false`, the normal site is shown.
 
-`wrangler.jsonc` sets `assets.run_worker_first: true` so Cloudflare runs the
-Worker (and middleware) before serving cached static HTML — required for
-maintenance mode to work on Workers.
-
 ## Getting started
 
 ```bash

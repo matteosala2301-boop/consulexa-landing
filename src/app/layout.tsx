@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import MaintenanceScreen from "@/components/MaintenanceScreen";
 import { cormorant, manrope } from "@/lib/fonts";
 import { site } from "@/data/content";
-import { siteConfig } from "../../site.config";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -28,20 +26,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const fontClass = `${cormorant.variable} ${manrope.variable}`;
-
-  if (siteConfig.maintenance.enabled) {
-    return (
-      <html lang="it" className={fontClass}>
-        <body>
-          <MaintenanceScreen />
-        </body>
-      </html>
-    );
-  }
-
   return (
-    <html lang="en" className={fontClass}>
+    <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
       <body>{children}</body>
     </html>
   );

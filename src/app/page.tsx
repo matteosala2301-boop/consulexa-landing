@@ -8,13 +8,8 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import { siteConfig } from "../../site.config";
 
 export default function Home() {
-  if (siteConfig.maintenance.enabled) {
-    return null;
-  }
-
   return (
     <>
       <Nav />
