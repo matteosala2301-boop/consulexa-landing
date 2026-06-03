@@ -1,0 +1,41 @@
+.principles {
+  display: flex;
+  flex-direction: column;
+  max-width: 880px;
+}
+
+.principle {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+  padding: 32px 0;
+  border-top: 0.5px solid var(--hairline);
+  align-items: start;
+}
+
+.principle:last-child {
+  border-bottom: 0.5px solid var(--hairline);
+}
+
+.principle h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.principle p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 768px) {
+  .principle {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 24px 0;
+  }
+}

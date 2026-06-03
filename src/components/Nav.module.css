@@ -1,0 +1,86 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 22px var(--pad-x);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(250, 248, 243, 0.85);
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  border-bottom: 0.5px solid var(--hairline);
+  transition: padding 0.3s ease;
+}
+
+.nav.scrolled {
+  padding: 16px var(--pad-x);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+}
+
+.logo {
+  height: 24px;
+  width: auto;
+  display: block;
+  transition: height 0.3s ease;
+}
+
+.nav.scrolled .logo {
+  height: 20px;
+}
+
+.links {
+  display: flex;
+  gap: 32px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: var(--ink-soft);
+}
+
+.links a {
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--navy);
+  transition: width 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--navy);
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .brand {
+    height: 20px;
+  }
+  .logo {
+    height: 20px;
+  }
+  .nav.scrolled .logo {
+    height: 18px;
+  }
+  .links {
+    gap: 16px;
+    font-size: 10px;
+  }
+}

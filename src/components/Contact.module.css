@@ -1,0 +1,50 @@
+.headline {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--ink);
+  max-width: 720px;
+  margin-bottom: 56px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  max-width: 720px;
+}
+
+.block a,
+.block span {
+  display: block;
+  font-size: 16px;
+  color: var(--ink);
+  margin-bottom: 6px;
+  transition: color 0.2s ease;
+}
+
+.block a:hover {
+  color: var(--navy);
+}
+
+.name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.based {
+  color: var(--ink-mute);
+  font-size: 14px;
+  margin-top: 16px;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

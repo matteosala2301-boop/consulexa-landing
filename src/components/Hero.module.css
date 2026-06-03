@@ -1,0 +1,98 @@
+.hero {
+  padding: 180px var(--pad-x) 140px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 200px;
+  right: var(--pad-x);
+  width: 1px;
+  height: 60px;
+  background: var(--navy);
+  opacity: 0.3;
+  animation: fadeInDown 1.2s ease 0.4s both;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: fadeInUp 0.8s ease 0.1s both;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--navy);
+  opacity: 0.5;
+}
+
+.title {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  max-width: 920px;
+  margin-bottom: 36px;
+  animation: fadeInUp 0.8s ease 0.25s both;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--navy);
+}
+
+.sub {
+  font-size: clamp(15px, 1.6vw, 17px);
+  color: var(--ink-soft);
+  max-width: 540px;
+  margin-bottom: 48px;
+  line-height: 1.7;
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  background: var(--navy);
+  color: var(--cream);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  animation: fadeInUp 0.8s ease 0.55s both;
+}
+
+.cta:hover {
+  background: var(--navy-deep);
+  transform: translateY(-1px);
+}
+
+.ctaArrow {
+  transition: transform 0.3s ease;
+}
+
+.cta:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 130px;
+    padding-bottom: 90px;
+  }
+}

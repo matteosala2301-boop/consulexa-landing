@@ -1,0 +1,138 @@
+/* ------------------------------------------------------------------ *
+ *  CONSULEXA — global stylesheet
+ *  Design tokens, CSS reset, shared layout utilities and the
+ *  scroll-reveal animation system. Component-specific styles live in
+ *  co-located *.module.css files.
+ * ------------------------------------------------------------------ */
+
+:root {
+  --ink: #1a1a1a;
+  --ink-soft: #4a5568;
+  --ink-mute: #6b7280;
+  --navy: #1a2942;
+  --navy-deep: #131f33;
+  --cream: #faf8f3;
+  --cream-warm: #f4f1ea;
+  --cream-mute: #e8e4d8;
+  --gold: #b8956a;
+  --hairline: rgba(26, 41, 66, 0.1);
+  --hairline-light: rgba(250, 248, 243, 0.15);
+
+  /* Font families are injected by next/font (see src/lib/fonts.ts) */
+  --serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --sans: var(--font-manrope), -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --pad-x: clamp(24px, 6vw, 88px);
+  --max-width: 1180px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  font-weight: 300;
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+/* ---------- shared section layout utilities ---------- */
+
+.section-pad {
+  padding: 100px var(--pad-x);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--navy);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+.section-intro {
+  font-family: var(--serif);
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--ink);
+  max-width: 720px;
+  margin-bottom: 72px;
+}
+
+/* ---------- scroll-reveal animation system ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 0.3;
+    height: 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-pad {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
