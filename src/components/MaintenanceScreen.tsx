@@ -45,10 +45,6 @@ export default function MaintenanceScreen() {
             {site.email}
           </a>
         )}
-
-        <p className={styles.footer}>
-          {site.legalName} · {site.location}
-        </p>
       </main>
     </div>
   );
