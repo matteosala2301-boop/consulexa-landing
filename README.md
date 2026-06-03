@@ -71,7 +71,9 @@ also available.
 ### Cloudflare Workers (recommended for this repo)
 
 Uses [@opennextjs/cloudflare](https://opennext.js.org/cloudflare) + Wrangler.
-The worker name is `consulexa-landing` (see `wrangler.jsonc`).
+The worker name is `consulexa-landing` (see `wrangler.jsonc`). Production is
+served only on the custom domain (`www.consulexa.it`); `workers.dev` and preview
+URLs are disabled in Wrangler so deploys do not re-enable them.
 
 ```bash
 npm install
