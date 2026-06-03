@@ -23,6 +23,8 @@
   display: inline-flex;
   align-items: center;
   height: 24px;
+  position: relative;
+  z-index: 102;
 }
 
 .logo {
@@ -34,6 +36,68 @@
 
 .nav.scrolled .logo {
   height: 20px;
+}
+
+.menuToggle {
+  display: none;
+  position: relative;
+  z-index: 102;
+  width: 44px;
+  height: 44px;
+  margin: -10px -8px -10px 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuIcon,
+.menuIcon::before,
+.menuIcon::after {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--navy);
+  border-radius: 1px;
+  transition:
+    transform 0.25s ease,
+    opacity 0.2s ease,
+    top 0.25s ease;
+}
+
+.menuIcon {
+  position: relative;
+}
+
+.menuIcon::before,
+.menuIcon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menuIcon::before {
+  top: -7px;
+}
+
+.menuIcon::after {
+  top: 7px;
+}
+
+.menuOpen .menuIcon {
+  background: transparent;
+}
+
+.menuOpen .menuIcon::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menuOpen .menuIcon::after {
+  top: 0;
+  transform: rotate(-45deg);
 }
 
 .links {
@@ -73,14 +137,58 @@
   .brand {
     height: 20px;
   }
+
   .logo {
     height: 20px;
   }
+
   .nav.scrolled .logo {
     height: 18px;
   }
+
+  .menuToggle {
+    display: inline-flex;
+  }
+
   .links {
-    gap: 16px;
-    font-size: 10px;
+    position: fixed;
+    inset: 0;
+    z-index: 101;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 0;
+    padding: 100px var(--pad-x) 48px;
+    background: rgba(250, 248, 243, 0.97);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease;
+  }
+
+  .linksOpen {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .links a {
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--navy);
+    padding: 18px 0;
+    border-bottom: 0.5px solid var(--hairline);
+  }
+
+  .links a::after {
+    display: none;
+  }
+
+  .links a:last-child {
+    border-bottom: none;
   }
 }

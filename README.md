@@ -68,6 +68,26 @@ also available.
 
 ## Deployment
 
+### Cloudflare Workers (recommended for this repo)
+
+Uses [@opennextjs/cloudflare](https://opennext.js.org/cloudflare) + Wrangler.
+The worker name is `consulexa-landing` (see `wrangler.jsonc`).
+
+```bash
+npm install
+npm run build          # sanity check
+npx opennextjs-cloudflare build   # Cloudflare bundle → .open-next/
+npm run deploy         # build + wrangler deploy (needs `wrangler login`)
+```
+
+Local preview after a Cloudflare build:
+
+```bash
+npm run preview        # serves via wrangler dev
+```
+
+### Other hosts
+
 Deployable anywhere that runs Node (Vercel, Netlify, a VPS, …). On Vercel: import
 the repo, no extra config needed.
 
@@ -76,10 +96,8 @@ the repo, no extra config needed.
 - `src/data/content.ts` → `site.linkedin` currently points to a generic LinkedIn
   URL; replace with the real profile.
 - The `/privacy` text is a baseline GDPR template — have it reviewed.
-- Original single-file prototype kept under `_legacy/` for reference.
-
 ---
 
-The original prototype lived as a single 920-line `index.html`. This repo splits
-it into components, separates concerns, self-hosts fonts, fixes the broken
-`privacy.html` link and adds a backend layer — without changing the design.
+The original prototype was a single-file HTML page. This repo splits it into
+components, separates concerns, self-hosts fonts, fixes the broken privacy link
+and adds a backend layer — without changing the design.
